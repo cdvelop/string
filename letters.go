@@ -1,4 +1,4 @@
-package string
+package strings
 
 func Letters() map[rune]string {
 	return map[rune]string{

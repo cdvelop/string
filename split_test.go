@@ -17,13 +17,11 @@ func TestStringSplit(t *testing.T) {
 		{"one.two.three.four", ".", []string{"one", "two", "three", "four"}},
 		{"hello world", " ", []string{"hello", "world"}},
 		{"hello. world", ".", []string{"hello", " world"}},
+		{"h.", ".", []string{"h."}},
 	}
 
 	for _, tc := range testCases {
-		result, err := strings.Split(tc.data, tc.separator)
-		if err != nil {
-			result[0] = err.Error()
-		}
+		result := strings.Split(tc.data, tc.separator)
 
 		if !areStringSlicesEqual(result, tc.expected) {
 			t.Errorf("StringSplit(%s, %s) = %v; expected %v", tc.data, tc.separator, result, tc.expected)

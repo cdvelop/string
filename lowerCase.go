@@ -16,3 +16,10 @@ func ToLowerCaseAlphabet(in string) string {
 
 	return out
 }
+
+func LowerCaseFirstLetter(name string) string {
+	if newChar, ok := VALID_LETTERS[name[0]]; ok {
+		return string(newChar) + name[1:]
+	}
+	return name
+}

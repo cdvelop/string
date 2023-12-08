@@ -20,7 +20,7 @@ func TestToLowerCaseAlphabet(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.input, func(t *testing.T) {
-			result := strings.ToLowerCaseAlphabet(test.input)
+			result := strings.ToLowerCase(test.input)
 
 			if result != test.expected {
 				t.Fatalf("Entrada: %s\n-Respuesta: %s\n-Expectativa: %s", test.input, result, test.expected)

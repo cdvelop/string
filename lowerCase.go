@@ -1,7 +1,7 @@
 package strings
 
 // solo a minúscula texto del alfabeto
-func ToLowerCaseAlphabet(in string) string {
+func ToLowerCase(in string) string {
 
 	var out string
 

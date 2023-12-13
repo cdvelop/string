@@ -16,6 +16,7 @@ func TestToLowerCaseAlphabet(t *testing.T) {
 		{"123", "123"},
 		{"", ""},
 		{"HOLA MUNDO", "hola mundo"},
+		{"HOLA Ñurdo", "hola ñurdo"},
 	}
 
 	for _, test := range tests {
@@ -24,6 +25,7 @@ func TestToLowerCaseAlphabet(t *testing.T) {
 
 			if result != test.expected {
 				t.Fatalf("Entrada: %s\n-Respuesta: %s\n-Expectativa: %s", test.input, result, test.expected)
+				return
 			}
 		})
 	}

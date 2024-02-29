@@ -19,6 +19,7 @@ func TestToUpperCase(t *testing.T) {
 		{"", ""},
 		{"hola mundo", "HOLA MUNDO"},
 		{"hola ñurdo", "HOLA ÑURDO"},
+		{"maría OK", "MARÍA OK"},
 	}
 
 	for _, test := range tests {

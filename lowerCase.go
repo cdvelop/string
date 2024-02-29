@@ -1,27 +1,24 @@
 package strings
 
-var upperLetters = []rune{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'}
-var lowerLetters = []rune{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}
-
 // todo a mayúscula alfabeto con ñ
-func ToUpperCase(text string) string {
-	return upperLowerCase(&text, true, false)
+func (s Strings) ToUpperCase(text string) string {
+	return s.upperLowerCase(&text, true, false)
 }
 
 // todo a minúscula alfabeto con ñ
-func ToLowerCase(text string) string {
-	return upperLowerCase(&text, false, false)
+func (s Strings) ToLowerCase(text string) string {
+	return s.upperLowerCase(&text, false, false)
 }
 
-func UpperCaseFirstLetter(text string) string {
-	return upperLowerCase(&text, true, true)
+func (s Strings) UpperCaseFirstLetter(text string) string {
+	return s.upperLowerCase(&text, true, true)
 }
 
-func LowerCaseFirstLetter(text string) string {
-	return upperLowerCase(&text, false, true)
+func (s Strings) LowerCaseFirstLetter(text string) string {
+	return s.upperLowerCase(&text, false, true)
 }
 
-func upperLowerCase(text *string, upper, onlyFirstLetter bool) (out string) {
+func (s Strings) upperLowerCase(text *string, upper, onlyFirstLetter bool) (out string) {
 
 	if len(*text) == 0 {
 		return *text
@@ -32,7 +29,7 @@ func upperLowerCase(text *string, upper, onlyFirstLetter bool) (out string) {
 
 		char := string(r)
 
-		if IsNotLetter(r) {
+		if s.IsNotLetter(r) {
 			out += char // Agregar directamente a la salida
 			continue
 		}
@@ -66,8 +63,4 @@ func upperLowerCase(text *string, upper, onlyFirstLetter bool) (out string) {
 	}
 
 	return
-}
-
-func IsNotLetter(r rune) bool {
-	return (r < 'a' || r > 'z') && (r < 'A' || r > 'Z') && (r != 'Ñ' && r != 'ñ')
 }

@@ -3,8 +3,6 @@ package strings_test
 import (
 	"log"
 	"testing"
-
-	"github.com/cdvelop/strings"
 )
 
 func TestGetPackage(t *testing.T) {
@@ -22,7 +20,7 @@ func TestGetPackage(t *testing.T) {
 
 	for testName, data := range testData {
 		t.Run(testName, func(t *testing.T) {
-			err := strings.ExtractTwoPointArgument(data.line, &data.out)
+			err := stringTest.ExtractTwoPointArgument(data.line, &data.out)
 
 			if data.expect != data.out {
 				t.Fatalf("Para la entrada '%s', se esperaba '%s' pero se obtuvo '%s' error: %v", data.line, data.expect, data.out, err)

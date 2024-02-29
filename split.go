@@ -1,7 +1,7 @@
 package strings
 
 // ej: "texto1,texto2" "," = []string{texto1,texto2}
-func Split(data, separator string) (result []string) {
+func (s Strings) Split(data, separator string) (result []string) {
 
 	if len(data) >= 3 {
 

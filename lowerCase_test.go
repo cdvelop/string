@@ -6,6 +6,8 @@ import (
 	"github.com/cdvelop/strings"
 )
 
+var stringTest = strings.Strings{}
+
 func TestToUpperCase(t *testing.T) {
 	tests := []struct {
 		input    string
@@ -21,7 +23,7 @@ func TestToUpperCase(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.input, func(t *testing.T) {
-			result := strings.ToUpperCase(test.input)
+			result := stringTest.ToUpperCase(test.input)
 
 			if result != test.expected {
 				t.Fatalf("Entrada: %s\n-Respuesta: %s\n-Expectativa: %s", test.input, result, test.expected)
@@ -47,7 +49,7 @@ func TestToLowerCase(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.input, func(t *testing.T) {
-			result := strings.ToLowerCase(test.input)
+			result := stringTest.ToLowerCase(test.input)
 
 			if result != test.expected {
 				t.Fatalf("Entrada: %s\n-Respuesta: %s\n-Expectativa: %s", test.input, result, test.expected)
@@ -72,7 +74,7 @@ func TestToUpperCaseFirsLetter(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.input, func(t *testing.T) {
-			result := strings.UpperCaseFirstLetter(test.input)
+			result := stringTest.UpperCaseFirstLetter(test.input)
 
 			if result != test.expected {
 				t.Fatalf("Entrada: %s\n-Respuesta: %s\n-Expectativa: %s", test.input, result, test.expected)
@@ -97,7 +99,7 @@ func TestLowerCaseFirstLetter(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.input, func(t *testing.T) {
-			result := strings.LowerCaseFirstLetter(test.input)
+			result := stringTest.LowerCaseFirstLetter(test.input)
 
 			if result != test.expected {
 				t.Fatalf("Entrada: %s\n-Respuesta: %s\n-Expectativa: %s", test.input, result, test.expected)

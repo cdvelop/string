@@ -1,6 +1,6 @@
 package strings
 
-func Replace(text, old, newStr string) (result string) {
+func (s Strings) Replace(text, old, newStr string) (result string) {
 
 	for i := 0; i < len(text); i++ {
 		// Buscar la ocurrencia de la palabra antigua en el texto
@@ -18,7 +18,7 @@ func Replace(text, old, newStr string) (result string) {
 	return result
 }
 
-func TrimSuffix(text, suffix string) string {
+func (s Strings) TrimSuffix(text, suffix string) string {
 	if len(text) < len(suffix) || text[len(text)-len(suffix):] != suffix {
 		return text
 	}
@@ -26,7 +26,7 @@ func TrimSuffix(text, suffix string) string {
 }
 
 // Eliminar espacios al principio y al final
-func Trim(text string) string {
+func (s Strings) Trim(text string) string {
 	// Eliminar espacios al principio
 	start := 0
 	for start < len(text) && text[start] == ' ' {

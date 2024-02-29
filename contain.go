@@ -1,7 +1,7 @@
 package strings
 
 // Contains verifica si la cadena 'search' está presente en 'text'
-func Contains(text, search string) int {
+func (s Strings) Contains(text, search string) int {
 	// Si la cadena de búsqueda es una cadena vacía, no puede haber coincidencias
 	if search == "" {
 		return 0

@@ -1,7 +1,7 @@
 package strings
 
 // separate ej: " ", "," "."
-func Join(values []string, separate string) (out string) {
+func (s Strings) Join(values []string, separate string) (out string) {
 
 	var space string
 	for _, v := range values {

@@ -2,8 +2,6 @@ package strings_test
 
 import (
 	"testing"
-
-	"github.com/cdvelop/strings"
 )
 
 func TestJoin(t *testing.T) {
@@ -18,7 +16,7 @@ func TestJoin(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		result := strings.Join(test.values, test.separate)
+		result := stringTest.Join(test.values, test.separate)
 		if result != test.expected {
 			t.Errorf("Join(%v, %s) = %s; expected %s", test.values, test.separate, result, test.expected)
 		}

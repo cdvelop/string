@@ -1,4 +1,4 @@
-package strings
+package strings_test
 
 import "testing"
 
@@ -16,7 +16,7 @@ func TestReplace(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		result := Replace(test.input, test.old, test.newStr)
+		result := stringTest.Replace(test.input, test.old, test.newStr)
 		if result != test.expected {
 			t.Errorf("Para input '%s', old '%s', new '%s', esperado '%s', pero obtenido '%s'", test.input, test.old, test.newStr, test.expected, result)
 		}
@@ -35,7 +35,7 @@ func TestTrimSuffix(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		result := TrimSuffix(test.input, test.suffix)
+		result := stringTest.TrimSuffix(test.input, test.suffix)
 		if result != test.expected {
 			t.Errorf("Para input '%s', suffix '%s', esperado '%s', pero obtenido '%s'", test.input, test.suffix, test.expected, result)
 		}
@@ -69,7 +69,7 @@ func TestTrim(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		result := Trim(test.input)
+		result := stringTest.Trim(test.input)
 		if result != test.expected {
 			t.Errorf("Para input '%s', esperado '%s', pero obtenido '%s'", test.input, test.expected, result)
 		}

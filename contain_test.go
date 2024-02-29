@@ -2,8 +2,6 @@ package strings_test
 
 import (
 	"testing"
-
-	"github.com/cdvelop/strings"
 )
 
 func TestContains(t *testing.T) {
@@ -68,7 +66,7 @@ func TestContains(t *testing.T) {
 	for name, tc := range testCases {
 		t.Run(name, func(t *testing.T) {
 
-			expected := strings.Contains(tc.text, tc.search)
+			expected := stringTest.Contains(tc.text, tc.search)
 			if expected != tc.expected {
 				t.Errorf("Error: Se esperaba %v, pero se obtuvo %v. Texto: %s, Búsqueda: %s", tc.expected, expected, tc.text, tc.search)
 			}

@@ -2,8 +2,6 @@ package strings_test
 
 import (
 	"testing"
-
-	"github.com/cdvelop/strings"
 )
 
 func TestStringSplit(t *testing.T) {
@@ -21,7 +19,7 @@ func TestStringSplit(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
-		result := strings.Split(tc.data, tc.separator)
+		result := stringTest.Split(tc.data, tc.separator)
 
 		if !areStringSlicesEqual(result, tc.expected) {
 			t.Errorf("StringSplit(%s, %s) = %v; expected %v", tc.data, tc.separator, result, tc.expected)

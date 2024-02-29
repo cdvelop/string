@@ -6,12 +6,38 @@ import (
 	"github.com/cdvelop/strings"
 )
 
-func TestToLowerCaseAlphabet(t *testing.T) {
+func TestToUpperCase(t *testing.T) {
 	tests := []struct {
 		input    string
 		expected string
 	}{
-		{"HELLO", "hello"},
+		{"4 hello! 123", "4 HELLO! 123"},
+		{"world 52,", "WORLD 52,"},
+		{"123", "123"},
+		{"", ""},
+		{"hola mundo", "HOLA MUNDO"},
+		{"hola ñurdo", "HOLA ÑURDO"},
+	}
+
+	for _, test := range tests {
+		t.Run(test.input, func(t *testing.T) {
+			result := strings.ToUpperCase(test.input)
+
+			if result != test.expected {
+				t.Fatalf("Entrada: %s\n-Respuesta: %s\n-Expectativa: %s", test.input, result, test.expected)
+				return
+			}
+		})
+	}
+
+}
+
+func TestToLowerCase(t *testing.T) {
+	tests := []struct {
+		input    string
+		expected string
+	}{
+		{"4 HELLO! 123", "4 hello! 123"},
 		{"World 52,", "world 52,"},
 		{"123", "123"},
 		{"", ""},
@@ -22,6 +48,56 @@ func TestToLowerCaseAlphabet(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.input, func(t *testing.T) {
 			result := strings.ToLowerCase(test.input)
+
+			if result != test.expected {
+				t.Fatalf("Entrada: %s\n-Respuesta: %s\n-Expectativa: %s", test.input, result, test.expected)
+				return
+			}
+		})
+	}
+}
+
+func TestToUpperCaseFirsLetter(t *testing.T) {
+	tests := []struct {
+		input    string
+		expected string
+	}{
+		{"hELLO", "HELLO"},
+		{"world 52,", "World 52,"},
+		{"123", "123"},
+		{"", ""},
+		{"hOLA MUNDO", "HOLA MUNDO"},
+		{"ñurdo hello", "Ñurdo hello"},
+	}
+
+	for _, test := range tests {
+		t.Run(test.input, func(t *testing.T) {
+			result := strings.UpperCaseFirstLetter(test.input)
+
+			if result != test.expected {
+				t.Fatalf("Entrada: %s\n-Respuesta: %s\n-Expectativa: %s", test.input, result, test.expected)
+				return
+			}
+		})
+	}
+}
+
+func TestLowerCaseFirstLetter(t *testing.T) {
+	tests := []struct {
+		input    string
+		expected string
+	}{
+		{"HELLO ", "hELLO "},
+		{"world 52,", "world 52,"},
+		{"123", "123"},
+		{"", ""},
+		{"HOLA MUNDO", "hOLA MUNDO"},
+		{"Ñurdo hello", "ñurdo hello"},
+	}
+
+	for _, test := range tests {
+		t.Run(test.input, func(t *testing.T) {
+			result := strings.LowerCaseFirstLetter(test.input)
 
 			if result != test.expected {
 				t.Fatalf("Entrada: %s\n-Respuesta: %s\n-Expectativa: %s", test.input, result, test.expected)
